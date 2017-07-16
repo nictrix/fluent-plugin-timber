@@ -2,7 +2,6 @@
 
 [![Gem Version](https://badge.fury.io/rb/fluent-plugin-timber.png)](http://badge.fury.io/rb/fluent-plugin-timber)
 [![Build Status](https://travis-ci.org/timberio/fluent-plugin-timber.png?branch=master)](https://travis-ci.org/timberio/fluent-plugin-timber)
-[![Code Climate](https://codeclimate.com/github/timberio/fluent-plugin-timber.png)](https://codeclimate.com/github/timberio/fluent-plugin-timber)
 [![Issue Stats](http://issuestats.com/github/uken/fluent-plugin-timber/badge/pr)](http://issuestats.com/github/uken/fluent-plugin-timber)
 [![Issue Stats](http://issuestats.com/github/uken/fluent-plugin-timber/badge/issue)](http://issuestats.com/github/uken/fluent-plugin-timber)
 
