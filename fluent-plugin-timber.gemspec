@@ -3,7 +3,7 @@ require 'date'
 
 Gem::Specification.new do |s|
   s.name        = 'fluent-plugin-timber'
-  s.version     = '1.0.0'
+  s.version     = '1.0.1'
   s.date        = Date.today.to_s
   s.summary     = 'Timber.io plugin for Fluentd'
   s.description = 'Streams Fluentd logs to the Timber.io logging service.'

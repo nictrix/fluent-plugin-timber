@@ -7,7 +7,7 @@ module Fluent
   class TimberOutput < Fluent::BufferedOutput
     Fluent::Plugin.register_output('timber', self)
 
-    VERSION = "1.0.0".freeze
+    VERSION = "1.0.1".freeze
     CONTENT_TYPE = "application/msgpack".freeze
     HOST = "https://logs.timber.io".freeze
     MAX_ATTEMPTS = 3.freeze
