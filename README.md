@@ -21,3 +21,5 @@ A highly efficient Fluentd plugin that delivers events to the [Timber.io logging
 ```
 
 For advanced configuration options, please see to the [buffered output parameters documentation.](http://docs.fluentd.org/articles/output-plugin-overview#buffered-output-parameters).
+
+Questions? Need help? [support@timber.io](mailto:support@timber.io).

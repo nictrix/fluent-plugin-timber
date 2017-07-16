@@ -42,5 +42,23 @@ describe Fluent::TimberOutput do
 
       expect(stub).to have_been_requested.times(1)
     end
+
+    it "handles 500s" do
+      stub = stub_request(:post, "https://logs.timber.io/frames").to_return(:status => 500, :body => "", :headers => {})
+
+      driver.emit(record)
+      driver.run
+
+      expect(stub).to have_been_requested.times(3)
+    end
+
+    it "handle auth failures" do
+      stub = stub_request(:post, "https://logs.timber.io/frames").to_return(:status => 403, :body => "", :headers => {})
+
+      driver.emit(record)
+      driver.run
+
+      expect(stub).to have_been_requested.times(1)
+    end
   end
 end
