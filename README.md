@@ -12,7 +12,7 @@ A highly efficient Fluentd plugin that delivers events to the [Timber.io logging
 ## Installation
 
 ```
-gem install fluent-plugin-elasticsearch
+gem install fluent-plugin-timber
 ```
 
 ## Usage
