@@ -33,7 +33,7 @@ describe Fluent::TimberOutput do
       stub = stub_request(:post, "https://logs.timber.io/frames").
         with(
           :body => start_with("\x85\xA3age\x1A\xAArequest_id\xA242\xA9parent_id\xA6parent\xAArouting_id\xA7routing\xA2dt\xB4".force_encoding("ASCII-8BIT")),
-          :headers => {'Authorization'=>'Basic YWJjZDEyMzQ=', 'Connection'=>'Keep-Alive', 'Content-Type'=>'application/json', 'User-Agent'=>'Timber Logstash/1.0.0'}
+          :headers => {'Authorization'=>'Basic YWJjZDEyMzQ=', 'Connection'=>'Keep-Alive', 'Content-Type'=>'application/msgpack', 'User-Agent'=>'Timber Logstash/1.0.0'}
         ).
         to_return(:status => 200, :body => "", :headers => {})
 

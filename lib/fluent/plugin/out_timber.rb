@@ -8,7 +8,7 @@ module Fluent
     Fluent::Plugin.register_output('timber', self)
 
     VERSION = "1.0.0".freeze
-    CONTENT_TYPE = "application/json".freeze
+    CONTENT_TYPE = "application/msgpack".freeze
     HOST = "https://logs.timber.io".freeze
     MAX_ATTEMPTS = 3.freeze
     PATH = "/frames".freeze
