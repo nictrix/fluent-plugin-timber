@@ -8,4 +8,4 @@ rvm:
 before_script:
 - echo $BUNDLE_GEMFILE
 - bundle install
-script: bundle exec rspec --format documentation
+script: bundle exec rspec
