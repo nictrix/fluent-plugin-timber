@@ -1,4 +1,4 @@
-# Fluent::Plugin::Timber, a plugin for [Fluentd](http://fluentd.org)
+# 🌲 Fluent::Plugin::Timber, a plugin for [Fluentd](http://fluentd.org)
 
 [![Gem Version](https://badge.fury.io/rb/fluent-plugin-timber.png)](http://badge.fury.io/rb/fluent-plugin-timber)
 [![Build Status](https://travis-ci.org/timberio/fluent-plugin-timber.png?branch=master)](https://travis-ci.org/timberio/fluent-plugin-timber)
