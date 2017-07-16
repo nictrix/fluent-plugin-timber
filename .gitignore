@@ -4,6 +4,7 @@
 coverage
 *.swp
 *.gem
+Gemfile.lock
 
 gemfiles/*.lock
 
