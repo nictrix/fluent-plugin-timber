@@ -1,0 +1,46 @@
+require "spec_helper"
+require "fluent/plugin/out_timber"
+
+describe Fluent::TimberOutput do
+  let(:config) do
+    %{
+      api_key  abcd1234
+      hostname my.host.com
+    }
+  end
+
+  let(:driver) do
+    tag = "test"
+    Fluent::Test::BufferedOutputTestDriver.new(Fluent::TimberOutput, tag) {
+      # v0.12's test driver assume format definition. This simulates ObjectBufferedOutput format
+      if !defined?(Fluent::Plugin::Output)
+        def format(tag, time, record)
+          [time, record].to_msgpack
+        end
+      end
+    }.configure(config)
+  end
+  let(:record) do
+    {'age' => 26, 'request_id' => '42', 'parent_id' => 'parent', 'routing_id' => 'routing'}
+  end
+
+  before(:each) do
+    Fluent::Test.setup
+  end
+
+  describe "#write" do
+    it "should send a chunked request to the Timber API" do
+      stub = stub_request(:post, "https://logs.timber.io/frames").
+        with(
+          :body => start_with("\x85\xA3age\x1A\xAArequest_id\xA242\xA9parent_id\xA6parent\xAArouting_id\xA7routing\xA2dt\xB4".force_encoding("ASCII-8BIT")),
+          :headers => {'Authorization'=>'Basic YWJjZDEyMzQ=', 'Connection'=>'Keep-Alive', 'Content-Type'=>'application/json', 'User-Agent'=>'Timber Logstash/1.0.0'}
+        ).
+        to_return(:status => 200, :body => "", :headers => {})
+
+      driver.emit(record)
+      driver.run
+
+      expect(stub).to have_been_requested.times(1)
+    end
+  end
+end

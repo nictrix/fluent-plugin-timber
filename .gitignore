@@ -1,0 +1,15 @@
+.DS_Store
+.rvmrc
+.ruby-version
+coverage
+*.swp
+*.gem
+
+gemfiles/*.lock
+
+/.bundle
+/.yardoc
+/doc
+/log
+/tmp
+/pkg
