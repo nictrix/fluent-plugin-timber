@@ -20,10 +20,11 @@ module Fluent
     config_param :ip, :string, default: nil
 
     def configure(conf)
-      encoded_api_key = Base64.urlsafe_encode64(conf["api_key"]).chomp
-      authorization_value = "Basic #{encoded_api_key}"
+      source_id = conf["source_id"]
+      api_key = conf["api_key"]
+      @path = "/sources/#{source_id}/frames"
       @headers = {
-        "Authorization" => authorization_value,
+        "Authorization" => "Bearer #{api_key}",
         "Content-Type" => CONTENT_TYPE,
         "User-Agent" => USER_AGENT
       }
@@ -59,7 +60,7 @@ module Fluent
         end
 
         body = chunk.read
-        response = @http_client.headers(@headers).post(PATH, body: body)
+        response = @http_client.headers(@headers).post(@path, body: body)
         response.flush
         code = response.code
 
