@@ -23,6 +23,7 @@ In your Fluentd configuration, use @type timber:
 <match your_match>
   @type timber
   api_key xxxxxxxxxxxxxxxxxxxxxxxxxxx        # Your Timber API (required)
+  source_id xxxxxxx                          # Your Timber Source ID (required)
   hostname "#{Socket.gethostname}"           # Your hostname (required)
   # ip 127.0.0.1                             # IP address (optional)
   buffer_chunk_limit 1m                      # Must be < 5m

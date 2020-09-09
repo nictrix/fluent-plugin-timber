@@ -16,6 +16,7 @@ module Fluent
     USER_AGENT = "Timber Logstash/#{VERSION}".freeze
 
     config_param :api_key, :string, secret: true
+    config_param :source_id, :string, secret: true
     config_param :hostname, :string
     config_param :ip, :string, default: nil
 
